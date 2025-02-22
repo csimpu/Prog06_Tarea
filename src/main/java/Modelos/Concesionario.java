@@ -13,5 +13,18 @@ package Modelos;
  * @author Borja Piñero
  */
 public class Concesionario {
+    private Vehiculo[] vehiculos;
+    private int numVehiculo;
 
+   public Concesionario (){
+    this.vehiculos = new Vehiculo [50];
+    this.numVehiculo = 0;
+    
+   }
+   
+   public void insertarVehiculo (Vehiculo vehiculo){
+       
+    
+}
+    
 }
