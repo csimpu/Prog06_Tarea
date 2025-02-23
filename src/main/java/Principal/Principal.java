@@ -88,6 +88,7 @@ public class Principal {
                     System.out.println("      vehiculo");
                     System.out.println("[5] - Elimina un vehiculo del");
                     System.out.println("      concesionario");
+                    System.out.println("***********************************");
                                     
                 }
             }
