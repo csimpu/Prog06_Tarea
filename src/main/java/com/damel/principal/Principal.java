@@ -1,11 +1,12 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-package Principal;
+package com.damel.principal;
 
+import com.damel.utilidades.Utilidades;
+import com.damel.modelos.Vehiculo;
+import com.damel.modelos.Concesionario;
 import java.util.Scanner;
-import Modelos.*;
-import Utilidades.*;
 
 /**
  *
