@@ -55,9 +55,14 @@ public class Concesionario {
     public String listaVehiculos(){
         
         StringBuilder lista = new StringBuilder();
+        
+        lista.append("Vehiculos en el concesionario");
                 
         for (int k = 0; k < numVehiculo; k++) {
-            lista.append(vehiculos[k].toString()).append("\n");
+            lista.append(k+1)
+                    .append(" - ")
+                    .append(vehiculos[k].toString())
+                    .append("\n");
         }
         
         return lista.toString();
