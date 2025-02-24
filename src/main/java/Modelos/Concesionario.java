@@ -51,5 +51,16 @@ public class Concesionario {
         return null;
 
     }
+    
+    public String listaVehiculos(){
+        
+        StringBuilder lista = new StringBuilder();
+                
+        for (int k = 0; k < numVehiculo; k++) {
+            lista.append(vehiculos[k].toString()).append("\n");
+        }
+        
+        return lista.toString();
+    }
 
 }
