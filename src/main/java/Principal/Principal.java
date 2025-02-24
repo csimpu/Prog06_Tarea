@@ -25,8 +25,6 @@ public class Principal {
 
         Concesionario concesionario = new Concesionario();
 
-        Vehiculo nuevoVehiculo = new Vehiculo();
-
         Scanner entrada = new Scanner(System.in);
 
         do {
@@ -53,29 +51,41 @@ public class Principal {
                     System.out.println("*************************************");
                     System.out.println("*          Nuevo vehiculo           *");
                     System.out.println("*************************************");
+
                     System.out.println("Introduce la matricula: ");
+
                     matricula = entrada.nextLine();
-                    nuevoVehiculo.setMatricula(matricula);
+
                     System.out.println("Introduce la marca: ");
+
                     marca = entrada.nextLine();
-                    nuevoVehiculo.setMarca(marca);
+
                     System.out.println("Introduce una descripcion: ");
+
                     descripcion = entrada.nextLine();
-                    nuevoVehiculo.setDescripcion(descripcion);
+
                     System.out.println("Introduce el nombre del propietario: ");
+
                     nombrePropietario = entrada.nextLine();
-                    nuevoVehiculo.setNombrePropietario(nombrePropietario);
+
                     System.out.println("Introduce el DNI del propietario");
+
                     dni = entrada.nextLine();
-                    nuevoVehiculo.setDni(dni);
+
                     System.out.println("Introduce el precio del vehiculo");
+
                     precio = entrada.nextDouble();
-                    nuevoVehiculo.setPrecio(precio);
+
                     System.out.println("Introduce los kilometros del ");
                     System.out.println("vehiculo");
+
                     km = entrada.nextDouble();
-                    nuevoVehiculo.setKm(km);
+
+                    Vehiculo nuevoVehiculo = new Vehiculo(matricula, marca, 
+                            descripcion, nombrePropietario, dni, precio, km);
+                    
                     concesionario.insertarVehiculo(nuevoVehiculo);
+                    
                     System.out.println("*************************************");
                     System.out.println();
 
