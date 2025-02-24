@@ -39,8 +39,10 @@ public class Principal {
             System.out.println("[5] - Eliminar vehiculo");
             System.out.println("[6] - Salir               [0] - Ayuda");
             System.out.println("*************************************");
-
+            System.out.print("Introduce una opcion: ");
+            
             opcion = entrada.nextInt();
+            
             System.out.println("*************************************");
             System.out.println();
             entrada.nextLine();
