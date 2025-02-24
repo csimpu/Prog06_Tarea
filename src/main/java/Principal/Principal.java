@@ -5,6 +5,7 @@ package Principal;
 
 import java.util.Scanner;
 import Modelos.*;
+import Utilidades.*;
 
 /**
  *
@@ -18,7 +19,8 @@ public class Principal {
                 marca,
                 descripcion,
                 nombrePropietario,
-                dni;
+                dni,
+                buscaMatricula;
         double precio,
                 km;
         int opcion;
@@ -89,30 +91,48 @@ public class Principal {
                     concesionario.insertarVehiculo(nuevoVehiculo);
                     
                     System.out.println("*************************************");
-                    System.out.println();
+                    
+                    Utilidades.enterParaSalir();
 
                 }
 
                 case 2 -> {
                     System.out.println("*************************************");
-                    System.out.println("*          Listar vehiculo          *");
+                    System.out.println("*         Lista de vehiculos        *");
                     System.out.println("*************************************");
+                    
                     System.out.println(concesionario.listaVehiculos());
+                    
                     System.out.println("*************************************");
-                    System.out.println();
+                    Utilidades.enterParaSalir();
                 }
 
                 case 3 -> {
                     System.out.println("*************************************");
                     System.out.println("*          Buscar vehiculo          *");
                     System.out.println("*************************************");
-
+                    System.out.println("Introduce la matricula que quieres");
+                    System.out.print("buscar: ");
+                    
+                    buscaMatricula = entrada.nextLine();
+                    
+                    System.out.println("El vehiculo que buscas es:");
+                    
+                    concesionario.buscaVehiculo(buscaMatricula);
+                    
+                    System.out.println("*************************************");
+                    Utilidades.enterParaSalir();
                 }
 
                 case 4 -> {
                     System.out.println("*************************************");
                     System.out.println("*           Modificar km            *");
                     System.out.println("*************************************");
+                    
+                    
+                    
+                    System.out.println("*************************************");
+                    Utilidades.enterParaSalir();
 
                 }
 
@@ -120,7 +140,11 @@ public class Principal {
                     System.out.println("*************************************");
                     System.out.println("*         Eliminar vehiculo         *");
                     System.out.println("*************************************");
-
+                    
+                    
+                    
+                    System.out.println("*************************************");
+                    Utilidades.enterParaSalir();                    
                 }
 
                 case 6 -> {
@@ -143,10 +167,12 @@ public class Principal {
                     System.out.println("      concesionario");
                     System.out.println("*************************************");
 
+                    Utilidades.enterParaSalir();
                 }
             }
 
         } while (opcion != 6);
 
     }
+
 }
