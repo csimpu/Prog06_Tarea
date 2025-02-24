@@ -22,17 +22,34 @@ public class Concesionario {
 
     }
 
-    public void insertarVehiculo(Vehiculo vehiculo) {
+    public int insertarVehiculo(Vehiculo vehiculo) {
+
+        for (int i = 0; i < numVehiculo; i++) {
+            if (vehiculos[i].getMatricula().equalsIgnoreCase(vehiculo.getMatricula()));
+            return -2;
+
+        }
         if (numVehiculo < vehiculos.length) {
             vehiculos[numVehiculo] = vehiculo;
-            System.out.println("Has anadido el vehiculo numero " + numVehiculo);
             numVehiculo++;
+            return 0;
+
         } else {
-            System.out.println("No hay espacio para mas vehiculos");
+            return -1;
         }
 
     }
-    
-    
+
+    public String buscaVehiculo(String matricula) {
+        
+        for (int j = 0; j < numVehiculo; j++) {
+            if (vehiculos[j].getMatricula().equalsIgnoreCase(matricula)){
+                return vehiculos[j].toString();
+            }
+            
+        }
+        return null;
+
+    }
 
 }
