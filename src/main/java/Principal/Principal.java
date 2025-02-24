@@ -59,7 +59,7 @@ public class Principal {
                     System.out.println("Introduce la marca: ");
                     marca = entrada.nextLine();
                     nuevoVehiculo.setMarca(marca);
-                    System.out.println("Introduce una descripción: ");
+                    System.out.println("Introduce una descripcion: ");
                     descripcion = entrada.nextLine();
                     nuevoVehiculo.setDescripcion(descripcion);
                     System.out.println("Introduce el nombre del propietario: ");
@@ -85,7 +85,7 @@ public class Principal {
                     System.out.println("*************************************");
                     System.out.println("*          Listar vehiculo          *");
                     System.out.println("*************************************");
-                    concesionario.listaVehiculos();
+                    System.out.println(concesionario.listaVehiculos());
                     System.out.println("*************************************");
                     System.out.println();
                 }
