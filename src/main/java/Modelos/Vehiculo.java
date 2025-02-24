@@ -21,14 +21,15 @@ public class Vehiculo {
     private double precio,
             km;
 
-    public Vehiculo() {
-        this.matricula = "1234AAA";
-        this.marca = "Hyundai";
-        this.descripcion = "Descripcion por defecto";
-        this.nombrePropietario = "Fulanito Tal Cual";
-        this.dni = "123456789A";
-        this.precio = 10000;
-        this.km = 100000;
+    public Vehiculo(String matricula, String marca, String descripcion,
+            String nombrePropietario, String dni, double precio, double km) {
+        this.matricula = matricula;
+        this.marca = marca;
+        this.descripcion = descripcion;
+        this.nombrePropietario = nombrePropietario;
+        this.dni = dni;
+        this.precio = precio;
+        this.km = km;
 
     }
 
@@ -97,7 +98,7 @@ public class Vehiculo {
                 + "\nnombrePropietario=" + nombrePropietario 
                 + "\ndni=" + dni 
                 + "\nprecio=" + precio 
-                + "\nkm=" + km;
+                + "\nkm=" + km +"\n";
     }
 
 }
