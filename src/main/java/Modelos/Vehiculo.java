@@ -91,8 +91,7 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo:"
-                + "\nmatricula=" + matricula 
+        return "matricula=" + matricula 
                 + "\nmarca=" + marca 
                 + "\ndescripcion=" + descripcion 
                 + "\nnombrePropietario=" + nombrePropietario 
