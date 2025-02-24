@@ -25,9 +25,9 @@ public class Concesionario {
     public int insertarVehiculo(Vehiculo vehiculo) {
 
         for (int i = 0; i < numVehiculo; i++) {
-            if (vehiculos[i].getMatricula().equalsIgnoreCase(vehiculo.getMatricula()));
+            if (vehiculos[i].getMatricula().equalsIgnoreCase(vehiculo.getMatricula())){
             return -2;
-
+            }
         }
         if (numVehiculo < vehiculos.length) {
             vehiculos[numVehiculo] = vehiculo;
