@@ -6,6 +6,7 @@ package com.damel.principal;
 import com.damel.utilidades.Utilidades;
 import com.damel.modelos.Vehiculo;
 import com.damel.modelos.Concesionario;
+import com.damel.validaciones.Validaciones;
 import java.util.Scanner;
 
 /**
@@ -60,6 +61,9 @@ public class Principal {
                     System.out.println("Introduce la matricula: ");
 
                     matricula = entrada.nextLine();
+                    
+                    if (!Validaciones.formatoMatricula(matricula))
+                        System.out.println("Error");
 
                     System.out.println("Introduce la marca: ");
 
@@ -72,6 +76,9 @@ public class Principal {
                     System.out.println("Introduce el nombre del propietario: ");
 
                     nombrePropietario = entrada.nextLine();
+                    
+                    if (!Validaciones.nombreEsValido(nombrePropietario))
+                        System.out.println("Error");
 
                     System.out.println("Introduce el DNI del propietario");
 
