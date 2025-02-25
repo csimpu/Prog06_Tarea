@@ -29,7 +29,8 @@ public class Validaciones {
     }
     
     public  static boolean formatoMatricula(String matricula){
-        String regEx = "^\\d {4}^[EIÑOQU]]{3}$";
+        String regEx = "^\\d{4}[B-DF-HJ-NPR-TW-Z]{3}$";
+
         
         Pattern patron = Pattern.compile(regEx);
         Matcher coincide = patron.matcher(matricula);
