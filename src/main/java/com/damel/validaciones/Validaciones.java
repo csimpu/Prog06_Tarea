@@ -6,6 +6,7 @@
 package com.damel.validaciones;
 
 import com.damel.modelos.*;
+import com.damel.utilidades.Utilidades;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,11 +39,28 @@ public class Validaciones {
     }
     
     public static boolean nombreEsValido (String propietario){
-        String regEx = "^[A-Z][a-z]+\\s[A-Z][a-z]+\\s[A-Z][a-z+]{0,34}$";
+        String regEx = "^[A-ZÑ][a-zñ]+\\s[A-ZÑ][a-zñ]+\\s[A-ZÑ][a-zñ]+{0,34}$";
         
         Pattern patron = Pattern.compile(regEx);
         Matcher coincide = patron.matcher(propietario);
         return coincide.matches();
+    }
+    
+    public static boolean dniEsValido (String dni){
+        
+        String regEx = "^[0-9]{8}[A-Z]{1}$";
+        
+        Pattern patron = Pattern.compile(regEx);
+        Matcher coincide = patron.matcher(dni);
+
+        if (coincide.matches()){
+            
+            String dniSinNumero = dni.substring(8);
+            boolean letraCorrecta = dniSinNumero.equals(Utilidades.calcularLetraDni(dni));
+            return letraCorrecta;
+            
+        } return false; 
+        
     }
 
 }
