@@ -75,20 +75,25 @@ public class Principal {
                     System.out.println("Introduce una descripcion: ");
 
                     descripcion = entrada.nextLine();
-
-                    System.out.println("Introduce el nombre del propietario: ");
-
+                    
                     do {
-                        nombrePropietario = entrada.nextLine();
+                    System.out.println("Introduce el nombre del propietario: ");
+                    
+                    nombrePropietario = entrada.nextLine();
                                         
                     if (!Validaciones.nombreEsValido(nombrePropietario))
                         System.out.println("Error");
                     
                     } while (!Validaciones.nombreEsValido(nombrePropietario));
                     
+                    do {
                     System.out.println("Introduce el DNI del propietario");
 
                     dni = entrada.nextLine();
+                    
+                    if (!Validaciones.dniEsValido(dni))
+                        System.out.println("Error");
+                    } while (!Validaciones.dniEsValido(dni));
 
                     System.out.println("Introduce el precio del vehiculo");
 
