@@ -4,6 +4,8 @@
  */
 package com.damel.modelos;
 
+import com.damel.validaciones.Validaciones;
+
 /**
  * Programación DAM Modalidad Virtual
  *
@@ -13,24 +15,29 @@ package com.damel.modelos;
  */
 public class Concesionario {
 
-    private Vehiculo[] vehiculos;
+    private Vehiculo[] vehiculosAlmacenados;
     private int numVehiculo;
 
     public Concesionario() {
-        this.vehiculos = new Vehiculo[50];
+        this.vehiculosAlmacenados = new Vehiculo[50];
         this.numVehiculo = 0;
 
     }
 
-    public int insertarVehiculo(Vehiculo vehiculo) {
+    public int insertarVehiculo(Vehiculo nuevoVehiculo) {
 
-        for (int i = 0; i < numVehiculo; i++) {
-            if (vehiculos[i].getMatricula().equalsIgnoreCase(vehiculo.getMatricula())){
+//        for (int i = 0; i < numVehiculo; i++) {
+//            if (vehiculosAlmacenados[i].getMatricula().equalsIgnoreCase(nuevoVehiculo.getMatricula())){
+//            return -2;
+//            }
+//        }
+        
+        if (!Validaciones.matriculaEsUnica(nuevoVehiculo, vehiculosAlmacenados, numVehiculo)){
             return -2;
-            }
         }
-        if (numVehiculo < vehiculos.length) {
-            vehiculos[numVehiculo] = vehiculo;
+
+        else if (numVehiculo < vehiculosAlmacenados.length) {
+            vehiculosAlmacenados[numVehiculo] = nuevoVehiculo;
             numVehiculo++;
             return 0;
 
@@ -43,8 +50,8 @@ public class Concesionario {
     public String buscaVehiculo(String matricula) {
         
         for (int j = 0; j < numVehiculo; j++) {
-            if (vehiculos[j].getMatricula().equalsIgnoreCase(matricula)){
-                return vehiculos[j].toString();
+            if (vehiculosAlmacenados[j].getMatricula().equalsIgnoreCase(matricula)){
+                return vehiculosAlmacenados[j].toString();
             }
             
         }
@@ -61,7 +68,7 @@ public class Concesionario {
         for (int k = 0; k < numVehiculo; k++) {
             lista.append(k+1)
                     .append(" - ")
-                    .append(vehiculos[k].toString())
+                    .append(vehiculosAlmacenados[k].toString())
                     .append("\n");
         }
         
