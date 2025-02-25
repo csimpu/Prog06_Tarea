@@ -58,12 +58,15 @@ public class Principal {
                     System.out.println("*          Nuevo vehiculo           *");
                     System.out.println("*************************************");
 
-                    System.out.println("Introduce la matricula: ");
+                    do{
+                        System.out.println("Introduce la matricula: ");
+                    
 
                     matricula = entrada.nextLine();
                     
                     if (!Validaciones.formatoMatricula(matricula))
                         System.out.println("Error");
+                    } while (!Validaciones.formatoMatricula(matricula));
 
                     System.out.println("Introduce la marca: ");
 
@@ -75,11 +78,14 @@ public class Principal {
 
                     System.out.println("Introduce el nombre del propietario: ");
 
-                    nombrePropietario = entrada.nextLine();
-                    
+                    do {
+                        nombrePropietario = entrada.nextLine();
+                                        
                     if (!Validaciones.nombreEsValido(nombrePropietario))
                         System.out.println("Error");
-
+                    
+                    } while (!Validaciones.nombreEsValido(nombrePropietario));
+                    
                     System.out.println("Introduce el DNI del propietario");
 
                     dni = entrada.nextLine();
