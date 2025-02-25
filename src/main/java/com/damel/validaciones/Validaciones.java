@@ -28,11 +28,19 @@ public class Validaciones {
         } return true;
     }
     
-    public boolean formatoMatricula(String matricula){
+    public  static boolean formatoMatricula(String matricula){
         String regEx = "^\\d {4}^[EIÑOQU]]{3}$";
         
         Pattern patron = Pattern.compile(regEx);
         Matcher coincide = patron.matcher(matricula);
+        return coincide.matches();
+    }
+    
+    public static boolean nombreEsValido (String propietario){
+        String regEx = "^[A-Z][a-z]+\\s[A-Z][a-z]+\\s[A-Z][a-z+]{0,34}$";
+        
+        Pattern patron = Pattern.compile(regEx);
+        Matcher coincide = patron.matcher(propietario);
         return coincide.matches();
     }
 
