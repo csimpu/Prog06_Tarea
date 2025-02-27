@@ -22,7 +22,8 @@ public class Principal {
                 descripcion,
                 nombrePropietario,
                 dni,
-                buscaMatricula;
+                buscaMatricula,
+                vehiculoEncontrado;
         double precio,
                 km;
         int opcion;
@@ -147,10 +148,11 @@ public class Principal {
                     
                     buscaMatricula = entrada.nextLine();
                     
+                    vehiculoEncontrado = concesionario.buscaVehiculo(buscaMatricula);
+                    
                     System.out.println("El vehiculo que buscas es:");
-                    
-                    concesionario.buscaVehiculo(buscaMatricula);
-                    
+                    System.err.println(vehiculoEncontrado);
+                                     
                     System.out.println("*************************************");
                     Utilidades.enterParaSalir();
                 }
