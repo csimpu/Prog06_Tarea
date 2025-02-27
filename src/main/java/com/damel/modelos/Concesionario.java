@@ -26,11 +26,6 @@ public class Concesionario {
 
     public int insertarVehiculo(Vehiculo nuevoVehiculo) {
 
-//        for (int i = 0; i < numVehiculo; i++) {
-//            if (vehiculosAlmacenados[i].getMatricula().equalsIgnoreCase(nuevoVehiculo.getMatricula())){
-//            return -2;
-//            }
-//        }
         
         if (!Validaciones.matriculaEsUnica(nuevoVehiculo, vehiculosAlmacenados, numVehiculo)){
             return -2;
