@@ -24,6 +24,7 @@ public class Validaciones {
           
         for (int i = 0; i < numVehiculo; i++) {
             if (vehiculosAlmacenados[i].getMatricula().equalsIgnoreCase(nuevoVehiculo.getMatricula())){
+                return false;
             }
            
         } return true;
@@ -39,7 +40,11 @@ public class Validaciones {
     }
     
     public static boolean nombreEsValido (String propietario){
-        String regEx = "^[A-ZÑ][a-zñ]+\\s[A-ZÑ][a-zñ]+\\s[A-ZÑ][a-zñ]+{0,34}$";
+        String regEx = "^[A-ZÑ][a-zñ]+\\s[A-ZÑ][a-zñ]+\\s[A-ZÑ][a-zñ]+$";
+        
+        if (propietario.length() > 40){
+            return false;
+        }
         
         Pattern patron = Pattern.compile(regEx);
         Matcher coincide = patron.matcher(propietario);
