@@ -109,6 +109,18 @@ public class Principal {
                     
                     concesionario.insertarVehiculo(nuevoVehiculo);
                     
+                    if (concesionario.insertarVehiculo(nuevoVehiculo) == -1)
+                        System.err.println("Error -1: El concesionario está lleno");
+                    
+                    if (concesionario.insertarVehiculo(nuevoVehiculo) == -2)
+                        System.err.println("""
+                                           Error -2: La matricula ya esta en
+                                           el concesionario""");
+                    
+                    if (concesionario.insertarVehiculo(nuevoVehiculo) == 0)
+                        System.out.println("Vehiculo anadido");
+                    
+                                        
                     System.out.println("*************************************");
                     
                     Utilidades.enterParaSalir();
