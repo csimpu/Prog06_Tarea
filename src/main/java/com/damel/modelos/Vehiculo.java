@@ -97,7 +97,7 @@ public class Vehiculo {
                 + "\nnombrePropietario=" + nombrePropietario 
                 + "\ndni=" + dni 
                 + "\nprecio=" + precio 
-                + "\nkm=" + km +"\n";
+                + "\nkm=" + km;
     }
 
 }
