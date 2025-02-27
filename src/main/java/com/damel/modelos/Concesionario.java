@@ -45,12 +45,11 @@ public class Concesionario {
     public String buscaVehiculo(String matricula) {
         
         for (int j = 0; j < numVehiculo; j++) {
-            if (vehiculosAlmacenados[j].getMatricula().equalsIgnoreCase(matricula)){
+            if (vehiculosAlmacenados[j].getMatricula().equals(matricula)){
                 return vehiculosAlmacenados[j].toString();
             }
             
-        }
-        return null;
+        } return null;
 
     }
     
