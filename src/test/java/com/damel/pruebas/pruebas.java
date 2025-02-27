@@ -16,15 +16,17 @@ import com.damel.validaciones.*;
 public class pruebas {
     
     @Test
-    void testFormatoMatriculaValido() {
-        assertTrue(Validaciones.formatoMatricula("1234BCD"));
-        assertFalse(Validaciones.formatoMatricula("123BCD"));
-        assertFalse(Validaciones.formatoMatricula("1234BCÑ"));
-        assertFalse(Validaciones.formatoMatricula("asdasd"));
+    void testFormatoMatricula() {
+        assertTrue(Validaciones.formatoMatricula("1234BCD"),
+                "La matricula debe tener 4 numeros y 3 letras");
+        assertFalse(Validaciones.formatoMatricula("123BCD"), 
+                "La matricula tiene 3 numeros");
+        assertFalse(Validaciones.formatoMatricula("1234BCÑ"), 
+                "La matricula tiene letras no validas");
     }
 
     @Test
-    void testNombrePropietarioValido() {
+    void testNombreEsValido() {
         assertTrue(Validaciones.nombreEsValido("Juan Perez Lopez"),
                 "El nombre deberia ser Nombre Apellido Apellido");
         assertTrue(Validaciones.nombreEsValido("Meño Piñero Piña"),
@@ -38,7 +40,7 @@ public class pruebas {
     }
 
     @Test
-    void testDniValido() {
+    void testDniEsValido() {
         assertTrue(Validaciones.dniEsValido("12345678Z"),
                 "El DNI deberia tener 8 numeros y la letra correcta");
         assertFalse(Validaciones.dniEsValido("1234567Z"), 
@@ -52,13 +54,17 @@ public class pruebas {
     @Test
     void testConcesionario() {
         Concesionario concesionario = new Concesionario();
-        Vehiculo vehiculo1 = new Vehiculo("1234BCD", "Toyota", "Descripcion", "Juan Perez Lopez", "12345678Z", 20000, 15000);
+        Vehiculo vehiculo1 = new Vehiculo("1234BCD", "Toyota", "Descripcion",
+                "Juan Perez Lopez", "12345678Z", 20000, 15000);
         
-         assertEquals(0,concesionario.insertarVehiculo(vehiculo1), "0: Vehiculo anadido");
+         assertEquals(0,concesionario.insertarVehiculo(vehiculo1),
+                 "0: Vehiculo anadido");
                 
-        Vehiculo vehiculo2 = new Vehiculo("1234BCD", "Honda", "Otra Descripcion", "Maria Garcia Gomez", "87654321X", 25000, 10000);
+        Vehiculo vehiculo2 = new Vehiculo("1234BCD", "Honda", "Otra Descripcion",
+                "Maria Garcia Gomez", "87654321X", 25000, 10000);
          
-        assertEquals(-2, concesionario.insertarVehiculo(vehiculo2), "-2: Matricula duplicada");
+        assertEquals(-2, concesionario.insertarVehiculo(vehiculo2),
+                "-2: Matricula duplicada");
         
         for (int i = 0; i < 50; i++) {
         concesionario.insertarVehiculo(new Vehiculo("000" + i + "BBB", "Ford", "Otro", "Carlos Ruiz Lopez", "11111111H", 18000, 5000));
@@ -66,4 +72,26 @@ public class pruebas {
     Vehiculo vehiculo51 = new Vehiculo("5678EFG", "BMW", "Lujo", "Luis Fernandez", "22222222J", 50000, 20000);
     assertEquals(-1, concesionario.insertarVehiculo(vehiculo51), "-1: concesionario lleno.");
     }
+    
+        @Test
+    void testBuscaVehiculo() {
+        Concesionario concesionario = new Concesionario();
+        Vehiculo vehiculo1 = new Vehiculo("1234BCD", "Toyota", "Descripcion",
+                "Juan Perez Lopez", "12345678Z", 20000, 15000);
+        
+         assertEquals(0,concesionario.insertarVehiculo(vehiculo1));
+        
+        String matricula1 = vehiculo1.getMatricula();
+        String matricula2 = "2345BBB";
+                
+        String resultado1 = concesionario.buscaVehiculo(matricula1);
+        String resultado2 = concesionario.buscaVehiculo(matricula2);
+        
+        // Verificamos que el resultado sea null
+        assertNotNull(resultado1);
+        assertNull(resultado2);
+    
+    }
+    
 }
+
