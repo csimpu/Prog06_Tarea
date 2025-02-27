@@ -23,7 +23,7 @@ public class Validaciones {
             Vehiculo[] vehiculosAlmacenados, int numVehiculo){
           
         for (int i = 0; i < numVehiculo; i++) {
-            if (vehiculosAlmacenados[i].getMatricula().equalsIgnoreCase(nuevoVehiculo.getMatricula())){
+            if (vehiculosAlmacenados[i].getMatricula().equals(nuevoVehiculo.getMatricula())){
                 return false;
             }
            
