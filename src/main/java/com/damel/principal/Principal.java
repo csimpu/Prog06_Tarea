@@ -149,10 +149,17 @@ public class Principal {
                     buscaMatricula = entrada.nextLine();
                     
                     vehiculoEncontrado = concesionario.buscaVehiculo(buscaMatricula);
+                                       
+                    if (vehiculoEncontrado == null)                        
+                        System.out.println("No existe el vehiculo con matricula "
+                        + buscaMatricula);
                     
-                    System.out.println("El vehiculo que buscas es:");
-                    System.err.println(vehiculoEncontrado);
-                                     
+                    else {                        
+                        System.out.println("El vehiculo que buscas es:");
+                        System.out.println(vehiculoEncontrado);
+                        
+                    }
+                    
                     System.out.println("*************************************");
                     Utilidades.enterParaSalir();
                 }
@@ -161,7 +168,7 @@ public class Principal {
                     System.out.println("*************************************");
                     System.out.println("*           Modificar km            *");
                     System.out.println("*************************************");
-                    
+
                     
                     
                     System.out.println("*************************************");
