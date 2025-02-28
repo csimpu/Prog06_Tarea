@@ -91,13 +91,13 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "matricula=" + matricula 
-                + "\nmarca=" + marca 
-                + "\ndescripcion=" + descripcion 
-                + "\nnombrePropietario=" + nombrePropietario 
-                + "\ndni=" + dni 
-                + "\nprecio=" + precio 
-                + "\nkm=" + km;
+        return "Matricula: " + matricula 
+                + "\nMarca: " + marca 
+                + "\nDescripcion: " + descripcion 
+                + "\nNombre del propietario:\n" + nombrePropietario 
+                + "\nDNI: " + dni 
+                + "\nPrecio: " + precio 
+                + "\nKilometros: " + km;
     }
 
 }
