@@ -25,7 +25,8 @@ public class Principal {
                 buscaMatricula,
                 vehiculoEncontrado;
         double precio,
-                km;
+                km,
+                nuevosKm;
         int opcion;
 
         Concesionario concesionario = new Concesionario();
@@ -168,9 +169,23 @@ public class Principal {
                     System.out.println("*************************************");
                     System.out.println("*           Modificar km            *");
                     System.out.println("*************************************");
+                    System.out.println("Introduce la matricula del coche que");
+                    System.out.print("quieres modificar los km: ");
+                                                
+                    buscaMatricula = entrada.nextLine();
+                    
+                    System.out.print("Introduce los nuevos km: ");
+                    
+                    nuevosKm = entrada.nextDouble();
+                    
+                    concesionario.modificarKm(buscaMatricula, nuevosKm);
+                    
+                    if (concesionario.modificarKm(buscaMatricula, nuevosKm) == 0)
+                        System.out.println("Kilometros actualizados");
+                    
+                    if (concesionario.modificarKm(buscaMatricula, nuevosKm) ==-1)
+                        System.out.println("No existe el vehiculo");                        
 
-                    
-                    
                     System.out.println("*************************************");
                     Utilidades.enterParaSalir();
 
