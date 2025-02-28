@@ -35,7 +35,8 @@ public class pruebas {
                 "El nombre deberia ser Nombre Apellido Apellido");
         assertFalse(Validaciones.nombreEsValido("J P L"),
                 "El nombre no pueden ser iniciales");
-        assertFalse(Validaciones.nombreEsValido("Este Nombre Laaaaaaaaaaaaaaaaaaaaaaaaaaaaargo"),
+        assertFalse(Validaciones.nombreEsValido(
+                "Este Nombre Laaaaaaaaaaaaaaaaaaaaaaaaaaaaargo"),
                 "El nombre tiene demasiados caracteres");
     }
 
