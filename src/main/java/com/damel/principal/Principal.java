@@ -67,7 +67,9 @@ public class Principal {
                     matricula = entrada.nextLine();
                     
                     if (!Validaciones.formatoMatricula(matricula))
-                        System.out.println("Error");
+                        System.out.println("Error: La matricula debe estar en mayusculas y no");
+                        System.out.println("contener los siguientes caracteres:");
+                        System.out.println("A, E, I, Ñ, O, Q, U");
                     } while (!Validaciones.formatoMatricula(matricula));
 
                     System.out.println("Introduce la marca: ");
@@ -84,7 +86,8 @@ public class Principal {
                     nombrePropietario = entrada.nextLine();
                                         
                     if (!Validaciones.nombreEsValido(nombrePropietario))
-                        System.out.println("Error");
+                        System.out.println("Error: El nombre del propietario debe ser:");
+                        System.out.println("Nombre Apellido1 Apellido2");
                     
                     } while (!Validaciones.nombreEsValido(nombrePropietario));
                     
@@ -94,7 +97,9 @@ public class Principal {
                     dni = entrada.nextLine();
                     
                     if (!Validaciones.dniEsValido(dni))
-                        System.out.println("Error");
+                        System.out.println("Error: El DNI debe tener el formato 12345678Z");
+                        System.out.println("y la letra debe ser la correcta, de acuerdo al");
+                        System.out.println("algoritmo del calculo de letra del DNI");
                     } while (!Validaciones.dniEsValido(dni));
 
                     System.out.println("Introduce el precio del vehiculo");
