@@ -23,7 +23,17 @@ public class Concesionario {
         this.numVehiculo = 0;
 
     }
-
+    
+    public int obtenerPosicionVehiculo(String matricula){
+        
+        for (int i = 0; i < numVehiculo; i++){
+            if (vehiculosAlmacenados[i].getMatricula().equalsIgnoreCase(matricula)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
     public int insertarVehiculo(Vehiculo nuevoVehiculo) {
 
         if (!Validaciones.matriculaEsUnica(nuevoVehiculo, vehiculosAlmacenados, numVehiculo)) {
@@ -78,5 +88,9 @@ public class Concesionario {
 
         }
         return -1;
+    }
+    
+    public boolean eliminarVehiculo() {
+        
     }
 }
