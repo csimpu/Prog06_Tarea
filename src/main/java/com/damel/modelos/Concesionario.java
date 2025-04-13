@@ -35,30 +35,28 @@ public class Concesionario {
     }
     
     public int insertarVehiculo(Vehiculo nuevoVehiculo) {
-
-        if (!Validaciones.matriculaEsUnica(nuevoVehiculo, vehiculosAlmacenados, numVehiculo)) {
-            return -2;
-        } else if (numVehiculo < vehiculosAlmacenados.length) {
-            vehiculosAlmacenados[numVehiculo] = nuevoVehiculo;
-            numVehiculo++;
-            return 0;
-
-        } else {
+        
+        if (numVehiculo >= vehiculosAlmacenados.length) {
             return -1;
         }
-
+        
+        if (!Validaciones.matriculaEsUnica(nuevoVehiculo, this)) {
+            return -2;
+        }
+        
+        vehiculosAlmacenados[numVehiculo] = nuevoVehiculo;
+        numVehiculo++;
+        return 0;
     }
 
     public String buscaVehiculo(String matricula) {
-
-        for (int j = 0; j < numVehiculo; j++) {
-            if (vehiculosAlmacenados[j].getMatricula().equals(matricula)) {
-                return vehiculosAlmacenados[j].toString();
-            }
-
+        
+        int posicion = obtenerPosicionVehiculo(matricula);
+        
+        if (posicion != -1) {
+            return vehiculosAlmacenados[posicion].toString();
         }
         return null;
-
     }
 
     public String listaVehiculos() {
@@ -79,18 +77,26 @@ public class Concesionario {
     }
 
     public int modificarKm(String matricula, double nuevoKm) {
-        for (int m = 0; m < numVehiculo; m++) {
-            if (vehiculosAlmacenados[m].getMatricula().equals(matricula)) {
-
-                vehiculosAlmacenados[m].setKm(nuevoKm);
-                return 0;
-            }
-
+        
+        int posicion = obtenerPosicionVehiculo(matricula);
+        
+        if (posicion !=-1) {
+            vehiculosAlmacenados[posicion].setKm(nuevoKm);
+            return 0;
         }
         return -1;
+//        for (int m = 0; m < numVehiculo; m++) {
+//            if (vehiculosAlmacenados[m].getMatricula().equals(matricula)) {
+//
+//                vehiculosAlmacenados[m].setKm(nuevoKm);
+//                return 0;
+//            }
+//
+//        }
+//        return -1;
     }
     
-    public boolean eliminarVehiculo() {
-        
-    }
+//    public boolean eliminarVehiculo() {
+//        
+//    }
 }
