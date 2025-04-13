@@ -94,5 +94,27 @@ public class pruebas {
     
     }
     
+    @Test
+void testModificarKm() {
+    // 1. Configuración inicial
+    Concesionario concesionario = new Concesionario();
+    Vehiculo vehiculo = new Vehiculo("1234BCD", "Toyota", "Descripción", 
+                                    "Juan Perez Lopez", "12345678Z", 20000, 15000);
+    concesionario.insertarVehiculo(vehiculo); // Añadimos un vehículo de prueba
+    
+    // 2. Caso de éxito: modificar KM de un vehículo existente
+    double nuevosKm = 20000;
+    assertEquals(0, concesionario.modificarKm("1234BCD", nuevosKm), 
+                "Debería retornar 0 si la matrícula existe");
+    
+    // Verificamos que los KM se actualizaron correctamente
+    assertEquals(nuevosKm, vehiculo.getKm(), 
+                "Los kilómetros del vehículo deberían haberse actualizado");
+    
+    // 3. Caso de error: matrícula inexistente
+    assertEquals(-1, concesionario.modificarKm("9999ZZZ", 10000), 
+                "Debería retornar -1 si la matrícula no existe");
+}
+    
 }
 
