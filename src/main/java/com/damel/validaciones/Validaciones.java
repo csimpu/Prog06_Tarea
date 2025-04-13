@@ -19,17 +19,10 @@ import java.util.regex.Pattern;
  */
 public class Validaciones {
     
-    public static boolean matriculaEsUnica (Vehiculo nuevoVehiculo, 
-            Vehiculo[] vehiculosAlmacenados, int numVehiculo){
-          
-        for (int i = 0; i < numVehiculo; i++) {
-            if (vehiculosAlmacenados[i].getMatricula().equals(nuevoVehiculo.getMatricula())){
-                return false;
-            }
-           
-        } return true;
+    public static boolean matriculaEsUnica (Vehiculo nuevoVehiculo, Concesionario concesionario) {
+        return concesionario.obtenerPosicionVehiculo(nuevoVehiculo.getMatricula()) == -1;
     }
-    
+
     public  static boolean formatoMatricula(String matricula){
         String regEx = "^\\d{4}[B-DF-HJ-NPR-TW-Z]{3}$";
 
