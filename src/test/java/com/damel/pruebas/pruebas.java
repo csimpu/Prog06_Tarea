@@ -115,6 +115,35 @@ void testModificarKm() {
     assertEquals(-1, concesionario.modificarKm("9999ZZZ", 10000), 
                 "Debería retornar -1 si la matrícula no existe");
 }
+
+@Test
+void testEliminarVehiculo() {
+    // 1. Configuración inicial
+    Concesionario concesionario = new Concesionario();
+    Vehiculo vehiculo1 = new Vehiculo("1234BCD", "Toyota", "Descripción", 
+                                    "Juan Perez Lopez", "12345678Z", 20000, 15000);
+    Vehiculo vehiculo2 = new Vehiculo("5678EFG", "Honda", "Descripción", 
+                                    "Maria Garcia", "87654321X", 25000, 10000);
+    
+    concesionario.insertarVehiculo(vehiculo1);
+    concesionario.insertarVehiculo(vehiculo2);
+    int numVehiculosInicial = concesionario.getNumVehiculos();
+
+    // 2. Caso de éxito: eliminar un vehículo existente
+    String matriculaExistente = "1234BCD";
+    String resultadoExito = concesionario.eliminarVehiculo(matriculaExistente);
+    
+    assertEquals("El vehiculo con matricula " + matriculaExistente + " se ha eliminado correctamente", resultadoExito);
+    assertEquals(numVehiculosInicial - 1, concesionario.getNumVehiculos()); // Verificar que el contador disminuyó
+    assertNull(concesionario.buscaVehiculo(matriculaExistente)); // Verificar que el vehículo ya no está
+
+    // 3. Caso de error: eliminar un vehículo inexistente
+    String matriculaInexistente = "9999ZZZ";
+    String resultadoError = concesionario.eliminarVehiculo(matriculaInexistente);
+    
+    assertEquals("Error: El vehiculo con matricula " + matriculaInexistente + " no existe.", resultadoError);
+    assertEquals(numVehiculosInicial - 1, concesionario.getNumVehiculos()); // El contador no debe cambiar
+}
     
 }
 
