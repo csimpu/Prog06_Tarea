@@ -60,5 +60,13 @@ public class Validaciones {
         } return false; 
         
     }
+    
+    public static boolean precioEsPositivo (double precio){
+        return precio > 0;
+    }
+    
+    public static boolean kmEsPositivo (double km){
+        return km > 0;
+    }
 
 }
