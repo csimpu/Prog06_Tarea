@@ -11,11 +11,21 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 /**
- *
+ * Clase Principal<br>
+ * Contiene el menu principal del programa. Permite añadir un vehiculo, listar
+ * los vehiculos en el concesionario, buscar un vehiculo por matricula, editar los
+ * kilometros de un vehiculo y eliminar un vehiculo.<br><br>
+ * 
+ * Programación DAM Modalidad Virtual - Curso 2024/2025<br><br>
+ * 
  * @author borja
  */
 public class Principal {
 
+    /**
+     * Metodo main de la clase Principal
+     * @param args 
+     */
     public static void main(String[] args) {
 
         String matricula,
@@ -228,12 +238,12 @@ public class Principal {
                     
                     } while (!Validaciones.kmEsPositivo(nuevosKm));
                     
-                    concesionario.modificarKm(buscaMatricula, nuevosKm);
+                    int kmModificados = concesionario.modificarKm(buscaMatricula, nuevosKm);
                     
-                    if (concesionario.modificarKm(buscaMatricula, nuevosKm) == 0)
+                    if (kmModificados == 0)
                         System.out.println("Kilometros actualizados");
                     
-                    if (concesionario.modificarKm(buscaMatricula, nuevosKm) ==-1)
+                    if (kmModificados ==-1)
                         System.out.println("No existe el vehiculo");                        
 
                     System.out.println("*************************************");
