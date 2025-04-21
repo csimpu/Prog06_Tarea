@@ -8,7 +8,7 @@ import com.damel.validaciones.Validaciones;
 
 /**
  * Clase Concesionario<br>
- * Contiene los metodos que permiten gestionar el concesionario
+ * Contiene los metodos que permiten gestionar el concesionario<br><br>
  * 
  * Programación DAM Modalidad Virtual - Curso 2024/2025<br><br>
  *
