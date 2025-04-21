@@ -8,6 +8,7 @@ import com.damel.modelos.Vehiculo;
 import com.damel.modelos.Concesionario;
 import com.damel.validaciones.Validaciones;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -47,7 +48,15 @@ public class Principal {
             System.out.println("*************************************");
             System.out.print("Introduce una opcion: ");
             
-            opcion = entrada.nextInt();
+            try {
+                opcion = entrada.nextInt();
+                
+            } catch (InputMismatchException eIMEm){
+                System.err.println("Error: debes introducir un numero del 0 al 6");
+                entrada.nextLine();
+                opcion = 0;
+                continue;
+            }
             
             System.out.println("*************************************");
             System.out.println();
@@ -66,10 +75,11 @@ public class Principal {
 
                     matricula = entrada.nextLine();
                     
-                    if (!Validaciones.formatoMatricula(matricula))
+                    if (!Validaciones.formatoMatricula(matricula)){
                         System.out.println("Error: La matricula debe estar en mayusculas y no");
                         System.out.println("contener los siguientes caracteres:");
                         System.out.println("A, E, I, Ñ, O, Q, U");
+                    }
                     } while (!Validaciones.formatoMatricula(matricula));
 
                     System.out.println("Introduce la marca: ");
@@ -85,46 +95,74 @@ public class Principal {
                     
                     nombrePropietario = entrada.nextLine();
                                         
-                    if (!Validaciones.nombreEsValido(nombrePropietario))
+                    if (!Validaciones.nombreEsValido(nombrePropietario)){
                         System.out.println("Error: El nombre del propietario debe ser:");
                         System.out.println("Nombre Apellido1 Apellido2");
-                    
+                    }
                     } while (!Validaciones.nombreEsValido(nombrePropietario));
                     
                     do {
                     System.out.println("Introduce el DNI del propietario");
 
                     dni = entrada.nextLine();
-                    
-                    if (!Validaciones.dniEsValido(dni))
+                                       
+                    if (!Validaciones.dniEsValido(dni)){
                         System.out.println("Error: El DNI debe tener el formato 12345678Z");
                         System.out.println("y la letra debe ser la correcta, de acuerdo al");
                         System.out.println("algoritmo del calculo de letra del DNI");
+                    }
                     } while (!Validaciones.dniEsValido(dni));
 
+                    do {
                     System.out.println("Introduce el precio del vehiculo");
 
-                    precio = entrada.nextDouble();
-
+                    try {
+                        precio = entrada.nextDouble();
+                    } catch (InputMismatchException eIMEp){
+                        System.err.println("Error: el precio debe ser un numero");
+                        entrada.nextLine();
+                        precio = 0;
+                        continue;
+                    }
+                    
+                    
+                    if (!Validaciones.precioEsPositivo(precio)){
+                        System.out.println("Error: El precio debe ser positivo");
+                    }
+                    } while (!Validaciones.precioEsPositivo(precio));
+                    
+                    do{
                     System.out.println("Introduce los kilometros del ");
                     System.out.println("vehiculo");
 
-                    km = entrada.nextDouble();
-
+                    try {
+                        km = entrada.nextDouble();
+                    } catch (InputMismatchException eIMEk){
+                        System.err.println("Error: Los km deben ser numeros");
+                        entrada.nextLine();
+                        km = 0;
+                        continue;
+                    }
+                    
+                    if (!Validaciones.kmEsPositivo(km)){
+                        System.out.println("Error: Los km deben ser positivos");
+                    }
+                    } while (!Validaciones.kmEsPositivo(km));
+                                    
                     Vehiculo nuevoVehiculo = new Vehiculo(matricula, marca, 
                             descripcion, nombrePropietario, dni, precio, km);
                     
-                    concesionario.insertarVehiculo(nuevoVehiculo);
+                    int vehiculoInsertado = concesionario.insertarVehiculo(nuevoVehiculo);
                     
-                    if (concesionario.insertarVehiculo(nuevoVehiculo) == -1)
+                    if (vehiculoInsertado == -1)
                         System.err.println("Error -1: El concesionario está lleno");
                     
-                    if (concesionario.insertarVehiculo(nuevoVehiculo) == -2)
+                    if (vehiculoInsertado == -2)
                         System.err.println("""
                                            Error -2: La matricula ya esta en
                                            el concesionario""");
                     
-                    if (concesionario.insertarVehiculo(nuevoVehiculo) == 0)
+                    if (vehiculoInsertado == 0)
                         System.out.println("Vehiculo anadido");
                     
                                         
@@ -179,9 +217,16 @@ public class Principal {
                                                 
                     buscaMatricula = entrada.nextLine();
                     
+                    do {
                     System.out.print("Introduce los nuevos km: ");
                     
                     nuevosKm = entrada.nextDouble();
+                    
+                    if (!Validaciones.kmEsPositivo(nuevosKm)){
+                        System.out.println("Error: no puedes restar kilometros");                 
+                    }
+                    
+                    } while (!Validaciones.kmEsPositivo(nuevosKm));
                     
                     concesionario.modificarKm(buscaMatricula, nuevosKm);
                     
@@ -200,7 +245,14 @@ public class Principal {
                     System.out.println("*************************************");
                     System.out.println("*         Eliminar vehiculo         *");
                     System.out.println("*************************************");
+                    System.out.println("Introduce la matricula del coche que");
+                    System.out.println("quieres eliminar");
                     
+                    buscaMatricula = entrada.nextLine();
+                    
+                    String vehiculoEliminado = concesionario.eliminarVehiculo(buscaMatricula);
+                    
+                    System.out.println(vehiculoEliminado);
                     
                     
                     System.out.println("*************************************");
