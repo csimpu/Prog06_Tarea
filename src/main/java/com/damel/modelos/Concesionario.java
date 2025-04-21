@@ -29,7 +29,7 @@ public class Concesionario {
     }
     
     /**
-     * Metodo que devuevuelve el numero de vehiculos que hay en el concesonario
+     * Metodo que devuelve el numero de vehiculos que hay en el concesonario
      * @return Devuelve el numero de vehiculos que contiene el concesionario
      */
     public int getNumVehiculos() {
