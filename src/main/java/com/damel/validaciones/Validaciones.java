@@ -11,9 +11,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Clase Validaciones
+ * Clase Validaciones<br>
  * 
- * Contiene los metodos que validan los datos que se introducen
+ * Contiene los metodos que validan los datos que se introducen<br><br>
  * 
  * Programación DAM Modalidad Virtual - Curso 2024/2025
  *
@@ -101,14 +101,21 @@ public class Validaciones {
     }
     
     /**
+     * Metodo que valida que el precio es positivo
      * 
-     * @param precio
-     * @return 
+     * @param precio El precio introducido
+     * @return Devuelve {@code true} si el precio es mayor que 0
      */
     public static boolean precioEsPositivo (double precio){
         return precio > 0;
     }
     
+    /**
+     * Metodo que valida que los kilometros son positivos
+     * 
+     * @param km Los kilometros introducidos
+     * @return Devuelve {@code true} si los kilometros son mayor que 0
+     */
     public static boolean kmEsPositivo (double km){
         return km > 0;
     }
