@@ -33,6 +33,12 @@ public class Utilidades {
 
     }
 
+    /**
+     * Algoritmo que obtiene la letra de DNI que le corresponde a un numero de DNI
+     * 
+     * @param dni El DNI del que se va a calcular la letra
+     * @return devuelve la letra correspondiente a esa numeracion
+     */
     public static String calcularLetraDni(String dni) {
         String[] letraDni = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D",
             "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
