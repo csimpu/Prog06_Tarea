@@ -24,6 +24,10 @@ public class Concesionario {
 
     }
     
+    public int getNumVehiculos() {
+        return numVehiculo;
+    }
+    
     public int obtenerPosicionVehiculo(String matricula){
         
         for (int i = 0; i < numVehiculo; i++){
@@ -85,18 +89,23 @@ public class Concesionario {
             return 0;
         }
         return -1;
-//        for (int m = 0; m < numVehiculo; m++) {
-//            if (vehiculosAlmacenados[m].getMatricula().equals(matricula)) {
-//
-//                vehiculosAlmacenados[m].setKm(nuevoKm);
-//                return 0;
-//            }
-//
-//        }
-//        return -1;
     }
     
-//    public boolean eliminarVehiculo() {
-//        
-//    }
+    public String eliminarVehiculo(String matricula) {
+        int posicion = obtenerPosicionVehiculo(matricula);
+        
+        if (posicion == -1) {
+            return "Error: El vehiculo con matricula " +matricula +" no existe.";
+        }
+        
+        for (int i = posicion; i < numVehiculo - 1; i++) {
+            vehiculosAlmacenados[i] = vehiculosAlmacenados[i+1];
+        }
+        
+        vehiculosAlmacenados[numVehiculo - 1] = null;
+        numVehiculo--;
+        
+        return "El vehiculo con matricula " +matricula +" se ha eliminado correctamente";
+        
+    }
 }
