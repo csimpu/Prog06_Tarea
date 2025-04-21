@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * 
  * Contiene los metodos que validan los datos que se introducen<br><br>
  * 
- * Programación DAM Modalidad Virtual - Curso 2024/2025
+ * Programación DAM Modalidad Virtual - Curso 2024/2025<br><br>
  *
  * @author Borja Piñero
  */
