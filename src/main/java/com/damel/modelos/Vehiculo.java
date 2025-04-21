@@ -162,10 +162,11 @@ public class Vehiculo {
         this.km = km;
     }
 
-    @Override
     /**
      * Metodo toString que devuelve los datos del vehiculo
+     * @return Devuelve una lista con los datos del vehiculo
      */
+    @Override
     public String toString() {
         return "Matricula: " + matricula 
                 + "\nMarca: " + marca 
