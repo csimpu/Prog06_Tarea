@@ -5,8 +5,7 @@
 package com.damel.modelos;
 
 /**
- * Clase Vehiculo
- * 
+ * Clase Vehiculo<br>
  * Contiene los metodos para crear el objeto vehiculo e interactuar con sus
  * atributos.
  * 
@@ -25,8 +24,7 @@ public class Vehiculo {
             km;
     
     /**
-     * Constructor del objeto Vehiculo
-     * 
+     * Constructor del objeto Vehiculo.<br> 
      * Crea un nuevo vehículo con los datos proporcionados en los parámetros
      * 
      * @param matricula Debe ser única y cumplir con el formato de las matriculas
