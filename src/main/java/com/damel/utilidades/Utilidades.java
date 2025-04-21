@@ -7,9 +7,10 @@ package com.damel.utilidades;
 import java.util.Scanner;
 
 /**
- * Programación DAM Modalidad Virtual
- *
- * Curso 2024/2025
+ * Clase Uildades<br>
+ * Contiene métodos que realizan acciones no relacionadas con la lógica del programa<br><br>
+ * 
+ * Programación DAM Modalidad Virtual - Curso 2024/2025
  *
  * @author Borja Piñero
  */
