@@ -256,7 +256,7 @@ public class Principal {
                     System.out.println("*         Eliminar vehiculo         *");
                     System.out.println("*************************************");
                     System.out.println("Introduce la matricula del coche que");
-                    System.out.println("quieres eliminar");
+                    System.out.print("quieres eliminar: ");
                     
                     buscaMatricula = entrada.nextLine();
                     
